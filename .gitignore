@@ -1,0 +1,9 @@
+# Direktori plugin Terraform
+.terraform/
+
+# File status infrastruktur (sangat rahasia di dunia nyata)
+*.tfstate
+*.tfstate.backup
+
+# Kunci versi plugin
+.terraform.lock.hcl

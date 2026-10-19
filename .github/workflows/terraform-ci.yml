@@ -1,0 +1,27 @@
+name: "Terraform CI Pipeline"
+
+on:
+  push:
+    branches:
+      - main # Pipeline otomatis berjalan saat ada kode baru di branch main
+
+jobs:
+  terraform-check:
+    name: "Validasi & Plan Infrastruktur"
+    runs-on: ubuntu-latest # GitHub meminjamkan server Linux gratis untuk kita
+
+    steps:
+      - name: 📥 Mengambil Kode dari Repositori
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Menginstal Terraform di Server GitHub
+        uses: hashicorp/setup-terraform@v3
+
+      - name: 🚀 Terraform Init
+        run: terraform init
+
+      - name: 🔍 Terraform Validate (Cek Typo/Error Kode)
+        run: terraform validate
+
+      - name: 📋 Terraform Plan (Simulasi Pembuatan Server)
+        run: terraform plan
