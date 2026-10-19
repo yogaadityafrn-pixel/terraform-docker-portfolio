@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest # GitHub meminjamkan server Linux gratis untuk kita
 
     steps:
-      - name: 📥 Mengambil Kode dari Repositori
+      - name: Mengambil Kode dari Repositori
         uses: actions/checkout@v4
 
-      - name: ⚙️ Menginstal Terraform di Server GitHub
+      - name: Menginstal Terraform di Server GitHub
         uses: hashicorp/setup-terraform@v3
 
-      - name: 🚀 Terraform Init
+      - name: Terraform Init
         run: terraform init
 
-      - name: 🔍 Terraform Validate (Cek Typo/Error Kode)
+      - name: Terraform Validate (Cek Typo/Error Kode)
         run: terraform validate
 
-      - name: 📋 Terraform Plan (Simulasi Pembuatan Server)
+      - name: Terraform Plan (Simulasi Pembuatan Server)
         run: terraform plan
